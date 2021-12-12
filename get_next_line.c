@@ -6,7 +6,7 @@
 /*   By: seozcan <seozcan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 13:52:39 by seozcan           #+#    #+#             */
-/*   Updated: 2021/12/05 19:27:48 by seozcan          ###   ########.fr       */
+/*   Updated: 2021/12/12 17:13:50 by seozcan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*append_lines(int fd, char *buff, char *head)
 	int			state;
 
 	state = 1;
-	while (!ft_strchr(head, '\n'))
+	while (!ft_strchr(head, '\n') && state != 0)
 	{
 		buff = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 		if (!buff)
