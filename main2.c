@@ -10,7 +10,7 @@ int	main()
 	int		fd = 0;
 	char	*ret;
 
-//	fd = open("test", O_RDWR);
+	fd = open("test", O_RDWR);
 	while ((ret = get_next_line(fd)))
 	{
 		printf("%s", ret);
