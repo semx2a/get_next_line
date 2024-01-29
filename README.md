@@ -1,47 +1,47 @@
 # Get Next Line
 
-## Résumé
-Ce projet a pour objectif de développer la fonction `get_next_line`, capable de lire des lignes avec une taille de buffer limite depuis un descripteur de fichier. Ce projet est écrit en C.
+## Summary
+This project aims to develop the `get_next_line` function, capable of reading lines with a limited buffer size from a file descriptor. This project is written in C.
 
-## Contenu du Répertoire Git
+## Git Repository Contents
 
-- `get_next_line.h`: Fichier d'en-tête contenant le prototype de la fonction `get_next_line`.
-- `get_next_line.c`: Implémentation de la fonction principale.
-- `get_next_line_utils.c`: Fichier utilitaire contenant des fonctions supplémentaires nécessaires à la réalisation de `get_next_line`.
+- `get_next_line.h`: Header file containing the prototype of the `get_next_line` function.
+- `get_next_line.c`: Implementation of the main function.
+- `get_next_line_utils.c`: Utility file containing additional functions necessary for the implementation of `get_next_line`.
 
-## Compétences Acquises
+## Acquired Skills
 
-### Programmation en C
+### C Programming
 
-- Développement d'une fonction complexe en langage C.
-- Respect de la norme C de `l'école 42 `pour assurer la qualité et la lisibilité du code.
-- Gestion robuste des comportements indéfinis et des cas d'erreurs.
+- Development of a complex function in the C language.
+- Adherence to the `42 School` C coding standard to ensure code quality and readability.
+- Robust handling of undefined behaviors and error cases.
 
-### Compilation et Makefile
+### Compilation and Makefile
 
-- Création d'un Makefile pour automatiser la compilation du projet.
-- Utilisation des flags `-Wall`, `-Wextra`, et `-Werror`.
-- Utilisation des flags -g3, -fsanitize=address pour le débogage
+- Makefile to automate the project compilation.
+- Use of flags `-Wall`, `-Wextra`, and `-Werror`.
+- Use of flags `-g3` and `-fsanitize=address` for debugging.
 
-### Gestion fine de la Mémoire
+### Memory Management
 
-- Allocation dynamique de mémoire avec `malloc`.  
-- Libération de mémoire une fois les opérations terminées, ou en cas d'erreur pour éviter les fuites.
-- Utilisation de `valgrind` pour vérifier les fuites de mémoire résiduelles.
+- Dynamic memory allocation using `malloc`.
+- Freeing memory once operations are completed or in case of errors to prevent leaks.
+- Use of `valgrind` to check for residual memory leaks.
 
-### Gestion des chaînes de caractères
+### String Handling
 
-- Lecture et enregistrement de chaînes de caractères.
-- Parsing de la chaîne de caractères pour vérifier la fin d'une ligne définit par un retour à la ligne `\n` ou une fin de fichier `EOF`.
-- Réutilisation du fd pour lire le fichier ligne par ligne une fois que la fonction est rappelée et retourne le reste de la ligne précédente si un retour à la ligne est trouvé.
+- Reading and storing strings.
+- Parsing the string to check for the end of a line defined by a newline character `\n` or end of file `EOF`.
+- Reuse of the file descriptor to read the file line by line once the function is recalled, returning the remainder of the previous line if a newline is found.
 
-### Variables Statiques
+### Static Variables
 
-- Définition d'un BUFFER_SIZE en amont de la compilation pour définir une taille de buffer constante
-- Utilisation d'une variable statique pour stocker le reste de la ligne précédente si un retour à la ligne est trouvé.
+- Definition of a `BUFFER_SIZE` before compilation to set a constant buffer size.
+- Use of a static variable to store the remainder of the previous line if a newline is found.
 
-### Gestion de Fichiers
+### File Handling
 
-- Lecture de lignes depuis un descripteur de fichier.
-- Gestion des différentes situations, telles que la fin de fichier ou les erreurs de lecture.
-- Gestion de plusieurs descripteurs de fichiers avec un tableau de strings constantes.
+- Reading lines from a file descriptor.
+- Handling various use cases, such as end of file or reading errors.
+- Multiple file descriptors handling with a constant array of strings.
