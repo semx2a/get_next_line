@@ -1,5 +1,7 @@
 # Get Next Line
 
+![Static Badge](https://img.shields.io/badge/lang-fr-red?labelColor=blue&link=https%3A%2F%2Fgithub.com%2Fsemx2a%2Fget_next_line%2Fblob%2Fmain%2FREADME.fr.md)
+
 ## Summary
 This project aims to develop the `get_next_line` function, capable of reading lines with a limited buffer size from a file descriptor. This project is written in C.
 
