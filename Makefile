@@ -6,7 +6,7 @@
 #    By: seozcan <seozcan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/07 19:14:12 by seozcan           #+#    #+#              #
-#    Updated: 2024/02/08 17:50:29 by seozcan          ###   ########.fr        #
+#    Updated: 2024/02/08 22:29:17 by seozcan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,8 +104,8 @@ $(DEP): $D%.d: $S%
 	@echo "$(HIGREEN)compiling $<:[OK]$(RESET)" | $(SPACE)
 
 
-$(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) -D BUFFER_SIZE=$(BUFFER_SIZE) $^ -o $@
+$(NAME): $(OBJ) $(DEP)
+	@$(CC) $(CFLAGS) -D BUFFER_SIZE=$(BUFFER_SIZE) $(OBJ) -o $@
 	@echo "$(HIGREEN)compiling $(NAME):[OK]$(RESET)" | $(SPACE)
 
 debug:		all
