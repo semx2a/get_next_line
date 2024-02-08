@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 	char	*line;
 	int 	i = 0;
 
-	if (argc > 2 && argv[1])
+	if (argc >= 2 && argv[1])
 	{
 		if (!strcmp(argv[1], "0") && argc == 2)
 			fd[0] = 0;
@@ -38,11 +38,9 @@ int main(int argc, char **argv)
 			}
 			printf("%s\n", line);
 			free(line);
+			close(fd[i]);
 			i++;
 		}
-		i = 0;
-		while (i < argc - 1)
-			close(fd[i]);
 	}
 	return (0);
 }
