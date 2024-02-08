@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seozcan <seozcan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 13:52:39 by seozcan           #+#    #+#             */
-/*   Updated: 2021/12/13 14:25:55 by seozcan          ###   ########.fr       */
+/*   Created: 2021/12/10 21:27:42 by seozcan           #+#    #+#             */
+/*   Updated: 2021/12/13 14:26:08 by seozcan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -82,22 +82,22 @@ char	*append_lines(int fd, char *buff, char *head)
 
 char	*get_next_line(int fd)
 {
-	static char	*head;
+	static char	*head[1024];
 	char		*buff;
 	char		*ln;
 
 	if (fd <= -1 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buff = NULL;
-	head = append_lines(fd, buff, head);
-	if (!head)
+	head[fd] = append_lines(fd, buff, head[fd]);
+	if (!head[fd])
 		return (NULL);
 	ln = NULL;
-	ln = get_line(ln, head);
-	head = set_head(head);
-	if (!head)
+	ln = get_line(ln, head[fd]);
+	head[fd] = set_head(head[fd]);
+	if (!head[fd])
 	{
-		free(head);
+		free(head[fd]);
 		return (NULL);
 	}
 	return (ln);
